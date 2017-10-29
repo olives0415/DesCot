@@ -1,0 +1,23 @@
+body {
+    /*pointer-events: none;*/
+}
+
+.charImg {
+    top:0;
+    left:0;
+}
+
+#Mascot {
+    width: 95;
+    height: 170;
+}
+
+.charBary {
+    position: absolute;
+    cursor:move;
+    top:0;
+    left:0;
+    width:100px;
+    height:150px;
+    background-color:rgba(0,0,0,0);
+}
