@@ -2,14 +2,15 @@ const { remote } = require('electron');
 const { dialog, Menu } = remote;
 const win = remote.getCurrentWindow();
 window.$ = window.jQuery = require('jquery');
-win.toggleDevTools();
-win.removeAllListeners();
+// win.toggleDevTools();
+// win.removeAllListeners();
 
 var MesMaxwidth = 0;
 
 $(() => {
     const mainImg = $(".charImg");
     const $mascot = $("#Mascot");
+    //const $mascot = $("#Message");
     const mainwindow = $("body").parent();
     const fillter = $(".charBary");
 
@@ -17,13 +18,16 @@ $(() => {
     var moveX = 0;
     var moveY = 0;
 
+    var a = 0;
+    var b = 0;
+
     fillter.css({left: mainImg.offset().left, top: mainImg.offset().top, width: mainImg.width(), height: mainImg.height()});
     console.log(mainImg.width());
     console.log("width:"+$(".charBary").width() + " height:"+fillter.height());
     console.log(fillter);
 
     function WindowResize(){
-        resizeTo($mascot.width() + MesMaxwidth,$mascot.height());
+        resizeTo($mascot.width() /*+ MesMaxwidth*/,$mascot.height());
     }
     WindowResize();
 
@@ -38,9 +42,18 @@ $(() => {
     })
     mainwindow.on('mousemove', (e)=>{
         if(moveFlg){
-            //win.setPosition((event.clientX+win.getPosition()[0]-moveX), (event.clientY+win.getPosition()[1]-moveY));
-            window.moveTo((event.clientX+win.getPosition()[0]-moveX), (event.clientY+win.getPosition()[1]-moveY));
+            win.setPosition((event.clientX+win.getPosition()[0]-moveX), (event.clientY+win.getPosition()[1]-moveY));
+            //window.moveTo((event.clientX+win.getPosition()[0]-moveX), (event.clientY+win.getPosition()[1]-moveY));
+            
         }
         //console.log("X:" + (event.clientX+win.getPosition()[0]-moveX) + "  Y:" + (event.clientY+win.getPosition()[1]-moveY));
+        console.log("width : " + $mascot.width() + " | height : " + $mascot.height());
+        //$mascot.css({width:$mascot.width()+1})
+        //win.setPosition(new Point(a, b));
+        a += 1;
+        b += 0;
+    })
+    mainwindow.mouseleave(function(){
+        console.log("⊂(`･ω･´)⊃ﾊﾞｯ")
     })
 })
