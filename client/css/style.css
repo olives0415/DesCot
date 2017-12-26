@@ -1,23 +1,77 @@
 body {
-    /*pointer-events: none;*/
+    margin: 0;
+    position: absolute;
 }
 
 .charImg {
     top:0;
     left:0;
+    -webkit-app-region: drag;
 }
 
 #Mascot {
-    width: 95;
-    height: 170;
 }
 
-.charBary {
-    position: absolute;
-    cursor:move;
+#Message {
     top:0;
     left:0;
-    width:100px;
-    height:150px;
-    background-color:rgba(0,0,0,0);
 }
+
+.left_balloon {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #777;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    /*margin-right: 20%;*/
+    clear: both;
+    max-width: 800px;
+    float: right;
+    white-space: nowrap;
+}
+
+.left_balloon:after,
+.left_balloon:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.left_balloon:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #fff;
+    border-width: 5px;
+    margin-top: -5px;
+}
+.left_balloon:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-right-color: #000;
+    border-width: 6px;
+    margin-top: -6px;
+}
+
+#top-box {
+    position:absolute;
+    top:0;left:0;
+    display:block;
+    width:640px;
+    height:300px;
+    padding:0;
+    margin:0;
+    }
+    
+    #top-box .slice_bk {
+    position:absolute;
+    background-position: 0 0;
+    top:0;left:0;
+    overflow:hidden;
+    }
+    #top-box .slice_bk img {
+    position:absolute;
+    top:0;left:0;
+    }

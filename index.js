@@ -10,7 +10,6 @@ const url = require('url');
 let mainWindow;
   
 function createWindow () {
-    //var Screen = require('screen');
     var Screen = electron.screen;
     var size = Screen.getPrimaryDisplay().size; // ディスプレイのサイズを取得する
     // メインウィンドウを作成します
