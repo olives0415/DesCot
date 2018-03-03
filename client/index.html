@@ -7,12 +7,19 @@
 </head>
 <body>
 	<div id="Mascot">
+        <div id="clock">
+            <p class="date">0000/00/00(日)</p>
+            <p class="time">00:00:00</p>
+        </div>
         <img src="img/balloon/balloon_b.png" class="charImg">
-        <div id="Message" class="mes">
-            <div id="balloon"><img /></div>
-            <div id="top-box"></div>
-        </div>  
+        <div id="option">
+            <span style="font-size: 12pt" class="text">x</span>
+            <input type="number" class="clockpos left" value="10"><br>
+            <span style="font-size: 12pt" class="text">y</span>
+            <input type="number" class="clockpos top" value="100">
+        </div>
     </div>
+    <input type="button" id="pushmessage" value="mes" style="position:absolute;top:200px;left:20px">
     <script type = "text/javascript" src="js/client.js"></script>
 </body>
 </html>
