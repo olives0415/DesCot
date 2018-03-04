@@ -18,7 +18,7 @@ function createWindow () {
         top: 0,
         //width: size.width,
         //height: size.height,
-        //transparent: true,
+        transparent: true,
         frame: false,
         show: true,
         resizable: false

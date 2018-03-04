@@ -6,20 +6,25 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div id="Mascot">
-        <div id="clock">
-            <p class="date">0000/00/00(日)</p>
-            <p class="time">00:00:00</p>
+    <div id="Mascot">
+        <div id="charImg">
+            <img src="img/char/main.png" class="charImg">
         </div>
-        <img src="img/balloon/balloon_b.png" class="charImg">
-        <div id="option">
+        <div id="clockArea">
+            <div id="clock">
+                <p class="date">0000/00/00(日)</p>
+                <p class="time">00:00:00</p>
+            </div>
+        </div>
+        <div id="option" style="display:none">
             <span style="font-size: 12pt" class="text">x</span>
-            <input type="number" class="clockpos left" value="10"><br>
+            <input type="number" class="clockpos left" value="0"><br>
             <span style="font-size: 12pt" class="text">y</span>
-            <input type="number" class="clockpos top" value="100">
+            <input type="number" class="clockpos top" value="0">
         </div>
     </div>
-    <input type="button" id="pushmessage" value="mes" style="position:absolute;top:200px;left:20px">
+    <div id="message"></div>
+    <input type="button" id="pushmessage" value="mes" style="position:absolute;top:330px;left:20px">
     <script type = "text/javascript" src="js/client.js"></script>
 </body>
 </html>

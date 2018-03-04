@@ -9,25 +9,29 @@ document.body.style.overflow = "hidden";
 var MesMaxwidth = 0;
 
 $(() => {
-    const mainImg = $(".charImg");
+    const mainImg = $("#charImg");
     const $mascot = $("#Mascot");
     const $clock = $('#clock');
+    const $clockarea = $('#clockArea');
+    const $mes = $('#message');
     const $box = $(".box");
     const $option = $('#option');
-
+     const $window = $(window);
+    
     const week = {"Sun":"日", "Mon":"月", "Tue":"火", "Wed":"水", "Thu":"木", "Fri":"金", "Sat":"土"};
     const month = {"Jan":"01", "Feb":"02", "Mar":"03", "Apr":"04", "May":"05", "Jun":"06", "Jul":"07", "Aug":"08", "Sep":"09", "Oct":"10", "Nov":"11", "Dec":"12"};
+    
+    var clockFlg = false;
 
     getclock();
 
+    
     function WindowResize(){
-        resizeTo($('body').width() + MesMaxwidth,$('body').height());
-        console.log("width:"+$('body').width() + " | height:"+$('body').height());
-        console.log("width:"+$mascot.width() + " | height:"+$mascot.height());
-        console.log("width:"+mainImg.width() + " | height:"+mainImg.height());
-        console.log("width:"+$('#Message').width() + " | height:"+$('#Message').height());        
+        var w = Math.max($('body').width(), $clock.position().left+$clock.width()+10) + 16;
+        var h = Math.max($('body').height(), 0/*$clock.position().top+$clock.height()+10*/) + 16;
+        resizeTo(w,h);
     }
-    //WindowResize();
+    // WindowResize();
 
     function initMessage(){
         deleteMessage();
@@ -36,13 +40,22 @@ $(() => {
 
     function pushMessage(text){
         initMessage();
+        var windowpos = {x:window.screenX, y:window.screenY};
+        console.log(windowpos.x, windowpos.y);
+        // window.moveTo(500,500);
+
         var messageDiv = $("<p></p>");
+        var textlength = text.bytes();
+        $mes.css({width:(textlength <= 20 ? textlength : 20)*8+32 + "px", height:(textlength/20+1)*16+32 + "px"})
+        
         messageDiv.addClass("message");
-        messageDiv.addClass("box top");
+        messageDiv.addClass("box bottom");
+        messageDiv.css({width:(textlength <= 20 ? textlength : 20)*8 + "px", height:(textlength/20+1)*16 + "px"});
+        messageDiv.text(text);
         //messageDiv.css({ top: clientConfig.message.top, left: mainImg.width() + clientConfig.message.left })
         //messageDiv.css({top:30, left: 50, width: 100, height: 20})
         //messageDiv.hide();
-        $mascot.append(messageDiv)
+        $mes.append(messageDiv)
         console.log("message");
     }
 
@@ -59,11 +72,11 @@ $(() => {
 
     $('.clockpos:input').bind('keyup mouseup',function(){
         console.log("a");
-        $clock.css({left:$('.left').val() + "px"});
-        $clock.css({top:$('.top').val() + "px"});
+        // $clockarea.css({"margin-left":$('.left').val() + "px"});
+        $clock.css({"left":$('.left').val() + "px"})
+        $clockarea.css({"margin-top":$('.top').val() + "px"});
     })
 
-    var clockFlg = true;
     $clock.click(()=>{
         if ( clockFlg ) {
             $option.hide();
@@ -72,11 +85,28 @@ $(() => {
             $option.show();
             clockFlg = true;
         }
+        WindowResize();
     })
 
+    String.prototype.bytes = function () {
+        var length = 0;
+        for (var i = 0; i < this.length; i++) {
+            var c = this.charCodeAt(i);
+            if ((c >= 0x0 && c < 0x81) || (c === 0xf8f0) || (c >= 0xff61 && c < 0xffa0) || (c >= 0xf8f1 && c < 0xf8f4)) {
+                length += 1;
+            } else {
+                length += 2;
+            }
+        }
+        return length;
+    };
+    
     $('#pushmessage').click(()=>{
-        pushMessage("example...");
+        pushMessage("あいうえおあいうえおあいうえおあいうえおあいうえおあいうえお");
+        $mascot.before($mes);
     })
+
+    
 
 })
 
