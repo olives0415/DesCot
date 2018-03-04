@@ -1,77 +1,83 @@
 body {
-    margin: 0;
-    position: absolute;
+    display:inline-block;
+    position: relative;
+}
+
+#Mascot {
+    text-align:center;
 }
 
 .charImg {
+    display: inline-block;
     top:0;
     left:0;
     -webkit-app-region: drag;
 }
 
-#Mascot {
-}
-
-#Message {
-    top:0;
-    left:0;
-}
-
-.left_balloon {
+#optionArea {
+    display: block;
     position: absolute;
-    background: #fff;
-    border: 1px solid #777;
+}
+
+#option {
+    z-index:10;
+    display:inline-block;
+    margin-bottom: 60px;
+    top: 60px;
+    padding:10px;
+    height:100px;
+    width:80px;
+    text-align: center;
+    border:solid 3px skyblue;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+}
+
+#option .close {
     margin: 10px;
-    padding: 10px;
-    border-radius: 15px;
-    /*margin-right: 20%;*/
-    clear: both;
-    max-width: 800px;
-    float: right;
-    white-space: nowrap;
 }
 
-.left_balloon:after,
-.left_balloon:before {
-    right: 100%;
-    top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-}
-.left_balloon:after {
-    border-color: rgba(255, 255, 255, 0);
-    border-right-color: #fff;
-    border-width: 5px;
-    margin-top: -5px;
-}
-.left_balloon:before {
-    border-color: rgba(0, 0, 0, 0);
-    border-right-color: #000;
-    border-width: 6px;
-    margin-top: -6px;
+#option .text {
+    -webkit-user-select: none;
 }
 
-#top-box {
-    position:absolute;
-    top:0;left:0;
-    display:block;
-    width:640px;
-    height:300px;
-    padding:0;
-    margin:0;
-    }
-    
-    #top-box .slice_bk {
-    position:absolute;
-    background-position: 0 0;
-    top:0;left:0;
-    overflow:hidden;
-    }
-    #top-box .slice_bk img {
-    position:absolute;
-    top:0;left:0;
-    }
+.clockpos {
+    width: 50px;
+    height:15px;
+}
+
+#clock {
+    z-index:9;
+    display:inline-block;
+    height:50px;
+    width: 100px;
+    position: relative;
+    background: rgba(25, 25, 25, 0.7);
+    font-family: 'OCRB',monospace;
+    color:white;
+    border-radius: 10px;
+    -webkit-app-redion: no-drag;
+    border:solid 5px rgb(50,50,50);
+    box-shadow: 0 0 8px 3px #000 inset;
+}
+
+#clock:hover {
+    opacity: 0.7;
+}
+
+#clock .date {
+    -webkit-user-select: none;
+    text-align:left;
+    font-size: 7pt;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    margin-left: 6px;
+}
+
+#clock .time {
+    -webkit-user-select: none;
+    font-size: 13pt;
+    margin-top: 2px;
+    text-align: center;
+}

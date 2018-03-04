@@ -16,9 +16,7 @@ function createWindow () {
     mainWindow = new BrowserWindow({
         left: 0,
         top: 0,
-        //width: size.width,
-        //height: size.height,
-        //transparent: true,
+        transparent: true,
         frame: false,
         show: true,
         resizable: false
@@ -33,11 +31,6 @@ function createWindow () {
         protocol: 'file:',
         slashes: true
     }));
-
-    // mainWindow.setIgnoreMouseEvents(true, {
-    //     forward : true
-    // });
-    //mainWindow.maximize();
   
     // デベロッパーツールの起動
     //mainWindow.webContents.openDevTools();
