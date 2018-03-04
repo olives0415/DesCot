@@ -34,6 +34,10 @@ body {
     position: relative;
 }
 
+#option .close {
+    margin: 10px;
+}
+
 #option .text {
     -webkit-user-select: none;
 }
@@ -43,14 +47,8 @@ body {
     height:15px;
 }
 
-#clockArea {
-    display:inline-block;
-}
-
 #clock {
     z-index:9;
-    /* top:100px; */
-    /* left:10px; */
     display:inline-block;
     height:50px;
     width: 100px;
@@ -82,91 +80,4 @@ body {
     font-size: 13pt;
     margin-top: 2px;
     text-align: center;
-}
-
-#message {
-    display:block;
-}
-
-.box {
-    margin: 10px;
-    display:inline-block;
-    position: absolute;
-    background: #fff;
-    height: 20px;
-    width: 20px;
-    padding: 5px;
-    border: 1px solid;
-    border-radius: 5px;
-    font-size: 10pt;
-}
-
-.box:before,.box:after{
-    content: '';
-    position:absolute;
-    display:block;
-}
-
-.box.top:after {
-    top: -9px;
-    left: 5px;
-    border-bottom: 10px solid #fff;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-}
-
-.box.top:before{
-    top: -10px;
-    left: 5px;
-    border-bottom: 10px solid #000;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-}
-
-.box.bottom:after {
-    bottom: -9px;
-    left: 5px;
-    border-top: 10px solid #fff;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-}
-
-.box.bottom:before {
-    bottom: -10px;
-    left: 5px;
-    border-top: 10px solid #000;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-}
-
-.box.left:after {
-    top: 10px;
-    left: -9px;
-    border-top: 5px solid transparent;
-    border-right: 10px solid #fff;
-    border-bottom: 5px solid transparent;
-}
-
-.box.left:before {
-    top: 10px;
-    left: -10px;
-    border-top: 5px solid transparent;
-    border-right: 10px solid #000;
-    border-bottom: 5px solid transparent;
-}
-
-.box.right:after {
-    top: 10px;
-    right: -9px;
-    border-top: 5px solid transparent;
-    border-left: 10px solid #fff;
-    border-bottom: 5px solid transparent;
-}
-
-.box.right:before {
-    top: 10px;
-    right: -8px;
-    border-top: 5px solid transparent;
-    border-left: 10px solid #000;
-    border-bottom: 5px solid transparent;
 }
